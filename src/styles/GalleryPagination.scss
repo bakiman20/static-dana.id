@@ -1,0 +1,62 @@
+@import './variables.scss';
+
+.gallery-pages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3.125rem;
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 5.125rem;
+  }
+}
+
+.gallery-pages_next,
+.gallery-pages_prev {
+  &:disabled {
+    color: rgba(102, 102, 102, 0.9);
+  }
+}
+
+.gallery-pages_button,
+.gallery-pages_prev,
+.gallery-pages_next {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.625rem;
+  border-radius: 50%;
+  min-width: 2.375rem;
+  color: $blue;
+  font-size: 1rem;
+}
+
+.gallery-pages_button.active {
+  color: $white;
+  background-color: $blue;
+}
+
+.gallery-pages_button:focus,
+.gallery-pages_prev:focus,
+.gallery-pages_next:focus {
+  outline-color: transparent;
+}
+.gallery-pages_label {
+  display: none;
+  @media screen and (min-width: $tablet) {
+    display: block;
+  }
+}
+.gallery-pages_prev,
+.gallery-pages_next {
+  display: flex;
+  align-items: center;
+  svg {
+    width: 0.8125rem;
+    height: 1.5rem;
+    display: block;
+  }
+}
+.gallery-pages_prev svg,
+.gallery-pages_next span {
+  margin-right: 0.625rem;
+}

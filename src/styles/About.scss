@@ -1,0 +1,52 @@
+@import './variables.scss';
+
+.about-header,
+.about-columns {
+  h1,
+  h2,
+  h3 {
+    color: $greyish-brown-90;
+  }
+}
+.about-header {
+  align-items: center;
+  h1 {
+    margin-top: 0;
+  }
+  h1,
+  p {
+    text-align: center;
+    @media screen and (min-width: $tablet) {
+      text-align: left;
+    }
+  }
+  img {
+    width: 100%;
+  }
+}
+.about-header_main,
+.about-content_title {
+  font-family: 'HelveticaNeue-Light', $font-stack;
+}
+.about-header_subtitle {
+  line-height: 2rem;
+  font-size: 1.125rem;
+}
+.about-content_title {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.about-columns {
+  text-align: center;
+}
+.column-title {
+  font-size: 1.5rem;
+  font-family: 'HelveticaNeue-Medium', $font-stack;
+  margin: 1rem 0;
+  min-height: 3.5rem;
+}
+.column-subtitle {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}

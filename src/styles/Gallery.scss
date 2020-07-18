@@ -1,0 +1,264 @@
+@import './variables.scss';
+
+.gallery-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 2.5rem;
+  @media screen and (min-width: $tablet) {
+    margin-top: 6rem;
+  }
+}
+.gallery-loading {
+  text-align: center;
+}
+.gallery-item {
+  flex: 0 1 auto;
+  position: relative;
+  width: 100%;
+  margin-bottom: 1.25rem;
+  &.active {
+    position: fixed;
+    z-index: 30; // due to Bulma's menu style
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: $white;
+    overflow: scroll;
+  }
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 3.25rem;
+    max-width: 18.75rem;
+    box-shadow: 1px 2px 8px 0 rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: box-shadow 200ms ease;
+    max-height: 18.75rem;
+    color: $white;
+    &:hover {
+      box-shadow: 3px 6px 10px 0 rgba(0, 0, 0, 0.5);
+    }
+  }
+}
+.gallery-item_button {
+  padding: 0;
+  border: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  cursor: pointer;
+  display: none;
+  &:focus {
+    outline: none;
+  }
+  @media screen and (max-width: $tablet) {
+    display: block;
+  }
+}
+.gallery-item_content {
+  bottom: 0;
+  width: 100%;
+  padding: 1.25rem;
+  box-sizing: border-box;
+  min-height: 8.75rem;
+  @media screen and (min-width: $tablet) {
+    position: absolute;
+    max-height: 18.75rem;
+  }
+}
+.gallery-item_header {
+  display: flex;
+  @media screen and (min-width: $tablet) {
+    display: block;
+  }
+}
+.gallery-item_img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.gallery-item_img-wrapper {
+  position: relative;
+  overflow: hidden;
+  @media screen and (min-width: $tablet) {
+    &::before {
+      content: '';
+      display: block;
+      background: $black-20;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      position: absolute;
+      transition: background 500ms;
+    }
+    .gallery-item:hover &,
+    .gallery-item.focused & {
+      &::before {
+        background: $black-50;
+      }
+    }
+  }
+}
+.gallery-item_share {
+  position: absolute;
+  transition: opacity 200ms ease;
+  &.desktop {
+    top: 1.5rem;
+    right: 1.5rem;
+    display: none;
+    opacity: 0;
+  }
+  &.mobile {
+    position: relative;
+    flex: 1 0 auto;
+    z-index: 2;
+  }
+  .gallery-item:hover &,
+  .gallery-item.focused &,
+  &:hover {
+    opacity: 1;
+  }
+  @media screen and (min-width: $tablet) {
+    &.desktop {
+      display: block;
+    }
+  }
+  @media screen and (min-width: $tablet) {
+    &.mobile {
+      display: none;
+    }
+  }
+}
+.gallery-item_share-buttons,
+.gallery-item_share-list {
+  .mobile & {
+    svg {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
+}
+.gallery-item_share-buttons {
+  display: flex;
+  justify-content: center;
+  color: $white;
+  .mobile & {
+    justify-content: flex-start;
+    flex-direction: row-reverse;
+    color: $grey;
+  }
+}
+.gallery-item_share-like,
+.gallery-item_share-toggle,
+.gallery-item_share-link {
+  background-color: transparent;
+  border: none;
+  svg {
+    width: 0.75rem;
+    height: auto;
+  }
+}
+.gallery-item_share-like,
+.gallery-item_share-toggle {
+  cursor: pointer;
+}
+.gallery-item_share-like {
+  .desktop & {
+    margin-right: 0.3rem;
+  }
+  span {
+    color: $white;
+    padding-left: 0.25rem;
+    .mobile & {
+      display: none;
+    }
+  }
+}
+.gallery-item_share-list {
+  list-style: none;
+  padding: 0.4rem 0.125rem 0 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  li {
+    height: 1.5rem;
+  }
+  .mobile & {
+    flex-direction: row;
+    padding: 0;
+    li:not(:last-child) {
+      padding-right: 10px;
+    }
+  }
+}
+.gallery-item_share-list-wrapper {
+  .mobile & {
+    box-shadow: 1px 4px 4px 0 rgba(121, 121, 121, 0.5);
+    background: $white;
+    position: absolute;
+    top: -4rem;
+    right: 2.175rem;
+    display: flex;
+    flex-direction: row;
+    padding: 0.625rem;
+    border-radius: 0.3rem;
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: -8px;
+      transform: rotate(45deg);
+      background: $white;
+      right: 12px;
+      width: 18px;
+      height: 18px;
+      box-shadow: 2px 4px 4px 0 rgba(121, 121, 121, 0.5);
+    }
+  }
+}
+.gallery-item_share-toggle {
+  padding: 0.125rem;
+  background-color: transparent;
+  transition: background 200ms ease;
+  &.expanded {
+    background-color: $white;
+    border-radius: 50%;
+  }
+  svg {
+    width: 12px;
+    height: 12px;
+  }
+  .mobile & {
+    margin-right: 0.3rem;
+  }
+  .desktop & {
+    width: 1rem;
+    height: 1rem;
+  }
+}
+.gallery-item_title {
+  text-transform: capitalize;
+  font-size: 1.125rem;
+  margin-top: 0;
+  margin-block-end: auto;
+  flex: 2 0 auto;
+}
+.gallery-item_arrow {
+  width: 1.125rem;
+  height: auto;
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  left: 1rem;
+  top: 1rem;
+  padding: 0;
+  display: none;
+  z-index: 2;
+  .active & {
+    display: block;
+  }
+}

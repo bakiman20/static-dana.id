@@ -1,0 +1,96 @@
+@import './variables.scss';
+
+.hero-slider {
+  position: relative;
+  .slick-arrow {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    border: none;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    color: transparent;
+    width: 3.75rem;
+    height: 1.875rem;
+    background-position: center;
+    cursor: pointer;
+    &:focus {
+      outline: none;
+    }
+    &.slick-next {
+      right: 0;
+      background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBkYXRhLW5hbWU9IkFycm93IiB2aWV3Qm94PSIwIDAgMTQgMjYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0xLDI2YTEsMSwwLDAsMS0uNzEtLjI5LDEsMSwwLDAsMSwwLTEuNDJMMTEuNTksMTMsLjI5LDEuNzFBMSwxLDAsMCwxLDEuNzEuMjlsMTIsMTJhMSwxLDAsMCwxLDAsMS40MmwtMTIsMTJBMSwxLDAsMCwxLDEsMjZaIi8+Cjwvc3ZnPgo=');
+    }
+    &.slick-prev {
+      background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNCAyNiI+CjxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0xMywyNmExLDEsMCwwLDAsLjcxLS4yOSwxLDEsMCwwLDAsMC0xLjQyTDIuNDEsMTMsMTMuNzEsMS43MUExLDEsMCwxLDAsMTIuMjkuMjlsLTEyLDEyYTEsMSwwLDAsMCwwLDEuNDJsMTIsMTJBMSwxLDAsMCwwLDEzLDI2WiIvPgo8L3N2Zz4=');
+    }
+  }
+  .slick-list {
+    z-index: 1;
+  }
+}
+.hero-slider-content-wrapper {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+}
+.hero-slider-description {
+  width: 70%;
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 2.5rem;
+  @media screen and (min-width: $desktop) {
+    font-size: 1.125rem;
+  }
+}
+.hero-slider-item,
+.hero-slider-loading {
+  height: 320px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: $white;
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    background: rgba(0,0,0,0.3);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+  }
+  @media screen and (min-width: $desktop) {
+    height: 490px;
+  }
+}
+.hero-slider-link {
+  padding: 0.8125rem 2.5rem;
+  border: solid 0.125rem $white;
+  font-size: 1.25rem;
+}
+.hero-slider-title {
+  margin: 0;
+  font-size: 2.25rem;
+  @media screen and (min-width: $desktop) {
+    font-size: 4.25rem;
+  }
+}
+.hero-slider-loading {
+  background-color: $black-50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .hero-slider-title {
+    z-index: 2;
+    color: $black-60;
+  }
+  &:before {
+    background: transparent;
+  }
+}

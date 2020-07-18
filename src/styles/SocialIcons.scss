@@ -1,0 +1,34 @@
+@import './variables';
+
+.social-icons {
+  @media screen and (max-width: $desktop) {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+.social-icons-title {
+  font-weight: normal;
+  margin: 0;
+}
+.social-icons-list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  justify-content: space-between;
+  width: 11rem;
+  @media screen and (min-width: $desktop) {
+    width: auto;
+    justify-content: flex-start;
+  }
+}
+.social-icons-item {
+  margin-right: 1.5rem;
+  &:last-child {
+    margin-right: 0;
+  }
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}

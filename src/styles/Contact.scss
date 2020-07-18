@@ -1,0 +1,90 @@
+@import './variables.scss';
+
+.contact-title {
+  font-size: 2.25rem;
+  color: $grey-90;
+  margin-top: 0;
+}
+.contact-form,
+.contact-description {
+  max-width: 31.25rem;
+}
+.contact-form {
+  .control .input,
+  .control .textarea {
+    box-sizing: border-box;
+    padding: 10px;
+    height: auto;
+    border: $light-grey solid 2px;
+    box-shadow: none;
+    color: $grey;
+    &:focus {
+      border-color: $blue;
+    }
+  }
+  .field label {
+    color: $brownish-grey;
+    font-size: 1.125rem;
+    font-weight: normal;
+  }
+  .help {
+    min-height: 1rem;
+  }
+  .button.is-link {
+    background-color: $blue;
+    padding: 0.875rem;
+    height: auto;
+  }
+}
+.contact-detail {
+  line-height: 1.5rem;
+  &.mobile {
+    text-align: center;
+  }
+}
+.contact-phone {
+  display: flex;
+  align-items: center;
+  &.mobile {
+    justify-content: center;
+  }
+}
+.contact-phone_icon img {
+  width: 4rem;
+  height: auto;
+  .mobile & {
+    width: 3rem;
+  }
+}
+.contact-phone_icon {
+  margin-right: 1.5625rem;
+}
+.contact-phone_number {
+  font-weight: bold;
+  font-size: 2.25rem;
+  h4 {
+    margin: 0;
+    color: $blue;
+  }
+  .mobile & {
+    font-size: 1.5rem;
+  }
+}
+.contact-mail:link,
+.contact-mail:visited {
+  color: $blue;
+  font-weight: bold;
+}
+.contact-description {
+  display: none;
+  @media screen and (min-width: $tablet) {
+    display: block;
+  }
+  .social-icons-item {
+    margin-right: 2.5rem;
+    svg {
+      width: 2.25rem;
+      height: 2.25rem;
+    }
+  }
+}
